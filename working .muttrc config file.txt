@@ -1,6 +1,6 @@
 
 ## Regarding SMTP
-set from = "it@azelpharma.com"
+set from = "emailaddress"
 set smtp_url = "smtps://email@domain"
 set smtp_pass = "XXX"
 set realname = "Henok"
