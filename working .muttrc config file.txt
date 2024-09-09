@@ -1,0 +1,82 @@
+
+## Regarding SMTP
+set from = "it@azelpharma.com"
+set smtp_url = "smtps://it@azelpharma.com@mail.azelpharma.com"
+set smtp_pass = "it@2020"
+set realname = "Henok"
+
+
+## Regarding IMAP
+set imap_user = "it@azelpharma.com"
+set imap_pass = "it@2020"
+set folder = "imaps://mail.azelpharma.com"
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+
+mailboxes =INBOX =Sent =Trash =Drafts =Junk =Other
+
+
+##LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+##SECURING
+set move = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 0
+
+set mail_check=60
+set timeout=-1
+
+
+##Sort by newest conversation first.
+set sort = reverse-threads
+set sort_aux = last-date-received
+
+##Set editor to create new email
+set editor='vim'
+
+
+#set ssl_starttls=yes
+#set ssl_force_tls=yes
+set smtp_authenticators = "login"
+set smtp_authenticators = "plain"
+
+
+
+#set smtp_sasl_mechanism="PLAIN"
+
+
+
+set ssl_verify_host = no
+set ssl_verify_dates = no
+
+
+
+
+## Update system and install libraries:
+
+sudo apt update
+sudo apt-get install build-essential libssl-dev libsasl2-dev
+sudo apt-get install libncurses5-dev
+sudo apt-get install mutt
+
+{ wget http://ftp.mutt.org/pub/mutt/mutt-2.2.13.tar.gz
+  tar xvf mutt-2.2.13.tar.gz
+  cd mutt-2.2.13
+  ./configure --with-sasl
+  ./configure --enable-sasl --with-sasl }  (If you want to compile it yourself)
+
+## To compose email
+echo "hepa"|mutt -s "Test Email" chneze1994@gmail.com
+
+## To open mutt and view inbox
+mutt
+
+## To send using crontab
+
+#!/bin/sh
+
+mutt -F /home/user/.mutt/muttrc -s "Subject" -- destination@email.com < /pathtofile/file.txt

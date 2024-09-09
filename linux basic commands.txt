@@ -1,0 +1,11 @@
+
+adduser user1
+sudo usermod -aG sudo user1
+
+sudo userdel -rf username
+
+sudo hostnamectl set-hostname newname
+
+
+ss --kill  'dst == 37.33.188.234'
+ss --kill -a
