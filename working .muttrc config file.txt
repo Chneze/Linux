@@ -1,15 +1,15 @@
 
 ## Regarding SMTP
 set from = "it@azelpharma.com"
-set smtp_url = "smtps://it@azelpharma.com@mail.azelpharma.com"
-set smtp_pass = "it@2020"
+set smtp_url = "smtps://email@domain"
+set smtp_pass = "XXX"
 set realname = "Henok"
 
 
 ## Regarding IMAP
-set imap_user = "it@azelpharma.com"
-set imap_pass = "it@2020"
-set folder = "imaps://mail.azelpharma.com"
+set imap_user = "email"
+set imap_pass = "XXXX"
+set folder = "imaps://mail.XXX.com"
 set spoolfile = "+INBOX"
 set record = "+Sent"
 set trash = "+Trash"
